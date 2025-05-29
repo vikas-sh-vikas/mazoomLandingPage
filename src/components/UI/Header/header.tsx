@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 function Header() {
   return (
-    <div className="grid grid-cols-6 mt-2 px-[2rem] sticky top-0 bg-white">
+    <div className="grid grid-cols-6 mt-2 px-[2rem] sticky top-0 bg-white z-10">
       <div className="m-auto">
         <Image alt={"logo"} src={"/next.svg"} height={75} width={150}></Image>
       </div>

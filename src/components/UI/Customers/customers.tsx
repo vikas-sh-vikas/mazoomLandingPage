@@ -9,7 +9,7 @@ function Customers() {
         <div className="text-[3.5rem] text-center">
           What our customers say about us
         </div>
-        <div className="grid grid-cols-3 pt-[6rem] gap-8">
+        <div className="grid grid-cols-3 pt-[6rem] gap-8 mx-[7rem]">
           <div className="border-gray-300 border-2 rounded-2xl">
             <div className="p-12">
               <FaQuoteRight size={"40px"} className="text-[#ec7a30]" />

@@ -7,7 +7,7 @@ function Pricing() {
         Choose the plan that works for you
       </div>
       <div className="grid grid-cols-3 gap-3">
-        <div className="border-gray-300 border-2 rounded-3xl shadow-xl p-8 group text-center transform transition-transform duration-300 hover:scale-105  hover:shadow-lg hover:bg-[#f2b892]">
+        <div className="border-gray-300 border-2 rounded-3xl shadow-xl p-8 group text-center transform transition-transform duration-300 hover:scale-105  hover:shadow-lg hover:bg-[#f9d1b7]">
           <div>Basic package</div>
           <div className="font-semibold text-sm p-3">
             Starting from 79 Saudi Riyals
@@ -36,7 +36,7 @@ function Pricing() {
           </div>
           </div>
         </div>
-        <div className="border-gray-300 border-2 rounded-3xl shadow-xl p-8 group text-center transform transition-transform duration-300 hover:scale-105  hover:shadow-lg hover:bg-[#f2b892]">
+        <div className="border-gray-300 border-2 rounded-3xl shadow-xl p-8 group text-center transform transition-transform duration-300 hover:scale-105  hover:shadow-lg hover:bg-[#f9d1b7]">
           <div>Basic package</div>
           <div className="font-semibold text-sm p-3">
             Starting from 79 Saudi Riyals
@@ -65,7 +65,7 @@ function Pricing() {
           </div>
           </div>
         </div>
-        <div className="border-gray-300 border-2 rounded-3xl shadow-xl p-8 group text-center transform transition-transform duration-300 hover:scale-105  hover:shadow-lg hover:bg-[#f2b892]">
+        <div className="border-gray-300 border-2 rounded-3xl shadow-xl p-8 group text-center transform transition-transform duration-300 hover:scale-105  hover:shadow-lg hover:bg-[#f9d1b7]">
           <div>Basic package</div>
           <div className="font-semibold text-sm p-3">
             Starting from 79 Saudi Riyals

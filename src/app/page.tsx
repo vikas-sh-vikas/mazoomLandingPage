@@ -1,3 +1,5 @@
+import BusinessSolution from "@/components/UI/Business-solution/business-solution";
+import ContactUs from "@/components/UI/Contact-us/contact-us";
 import Customers from "@/components/UI/Customers/customers";
 import Feature from "@/components/UI/Feature/feature";
 import HomeBanner from "@/components/UI/Home-Banner/home-beanner";
@@ -11,9 +13,8 @@ export default function Home() {
       <Feature />
       <Customers />
       <Pricing />
-      <div></div>
-      <div></div>
-      <div></div>
+      <BusinessSolution />
+      <ContactUs/>
     </div>
   );
 }
