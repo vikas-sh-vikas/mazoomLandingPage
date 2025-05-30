@@ -1,36 +1,70 @@
 import React from "react";
 import { FaGoogle, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import Image from 'next/image';
+import Image from "next/image";
 
-function Footer() {
+export default function Footer() {
   return (
-    <div className="bg-black grid grid-cols-5 p-4 px-[2rem]">
-      <div className="col-span-4">
-        <Image src={"/footer-logo.avif"} alt="footer-logo" height={50} width={100}/>
-        <div className="text-white">
-          Mazoom Company - Riyadh, Saudi Arabia At Takhassusi Street{" "}
+    <footer className="bg-black text-white py-8 px-4 sm:px-8 lg:px-32">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-start gap-8">
+        {/* Logo + Address */}
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div className="mb-4">
+            <Image
+              src="/footer-logo.avif"
+              alt="Mazoom Company Logo"
+              width={120}
+              height={60}
+            />
+          </div>
+          <address className="not-italic text-sm">
+            Mazoom Company<br />
+            Riyadh, Saudi Arabia<br />
+            Takhassusi Street
+          </address>
+        </div>
+
+        {/* Links */}
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <ul className="space-y-2 mb-4">
+            <li>
+              <a href="#" className="hover:underline">
+                Terms of Use
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                Privacy Policy
+              </a>
+            </li>
+            <li className="font-medium">Connect with us here</li>
+          </ul>
+
+          {/* Social Icons */}
+          <div className="flex gap-3">
+            <a
+              href="https://www.google.com"
+              aria-label="Google"
+              className="bg-white text-black rounded-full p-2 hover:bg-gray-200 transition"
+            >
+              <FaGoogle size={20} />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              aria-label="Instagram"
+              className="bg-white text-black rounded-full p-2 hover:bg-gray-200 transition"
+            >
+              <FaInstagram size={20} />
+            </a>
+            <a
+              href="https://wa.me/9665052787"
+              aria-label="WhatsApp"
+              className="bg-white text-black rounded-full p-2 hover:bg-gray-200 transition"
+            >
+              <FaWhatsapp size={20} />
+            </a>
+          </div>
         </div>
       </div>
-      <div>
-        <ul className="pb-8">
-          <li className="text-white">Terms of use</li>
-          <li className="text-white">Privacy policy</li>
-          <li className="text-white">Connect with us here</li>
-        </ul>
-        <div className="flex gap-2">
-          <div className="bg-white rounded-full p-2">
-            <FaGoogle />
-          </div>
-          <div className="bg-white rounded-full p-2">
-            <FaInstagram />
-          </div>
-          <div className="bg-white rounded-full p-2">
-            <FaWhatsapp />
-          </div>
-        </div>
-      </div>
-    </div>
+    </footer>
   );
 }
-
-export default Footer;

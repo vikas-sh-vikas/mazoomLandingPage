@@ -1,55 +1,93 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function HomeBanner() {
   return (
-    <div className="mx-[7rem]">
-      <div className="grid grid-cols-5 mx-[6rem] gap-[4rem]">
-        <div className="col-span-3 my-auto">
-          <div className="text-[3.5rem] m-auto text-right pb-[3.5rem]">
-            Mazoom invitations Best way to invite
-          </div>
-          <div className="text-[1.2rem] text-right pb-[3rem]">
+    <div className="px-4 sm:px-8 md:px-[7rem]">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+        {/* Text Content */}
+        <motion.div
+          className="md:col-span-3 text-center md:text-right space-y-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.h1
+            className="text-[2rem] sm:text-[2.5rem] md:text-[3.5rem]"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Mazoom invitations<br></br>
+            Best way to invite
+          </motion.h1>
+
+          <motion.p
+            className="text-base sm:text-lg leading-relaxed text-gray-700"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             Your guests will enjoy high privacy and hassle-free use without any
             app downloads or links. Elevate your event planning today with us.
-          </div>
-          <div className="flex justify-end gap-3 pb-4">
-            <button className="flex gap-3 items-center bg-black text-white text-lg px-7 py-3 rounded-full">
-              <FaGooglePlay size={"24"} />
+          </motion.p>
+
+          {/* App Buttons */}
+          <motion.div
+            className="flex justify-center md:justify-end gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <button className="flex gap-3 items-center bg-black text-white text-base sm:text-lg px-6 py-3 rounded-full shadow-lg">
+              <FaGooglePlay size={20} />
               Google Play
             </button>
-            <button className="flex gap-3 items-center bg-black text-white text-lg px-7 py-3 rounded-full">
-              <FaApple size={"24"} />
+            <button className="flex gap-3 items-center bg-black text-white text-base sm:text-lg px-6 py-3 rounded-full shadow-lg">
+              <FaApple size={20} />
               App Store
             </button>
-          </div>
-          <div className="text-end mr-20">
-            <button className="bg-[#ec7a30] px-16 py-3 text-lg text-white rounded-full">
+          </motion.div>
+
+          {/* Contact Button */}
+          <motion.div
+            className="pt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
+            <button className="bg-[#ec7a30] hover:bg-[#d46823] transition-colors px-10 sm:px-16 py-3 text-white text-base sm:text-lg rounded-full shadow-md">
               Contact Us
             </button>
-          </div>
-        </div>
-        {/* <div className="h-[200px]"> */}
-        <div
+          </motion.div>
+        </motion.div>
+
+        {/* Image */}
+        <motion.div
+          className="relative w-full h-full sm:h-[500px] md:h-[800px] md:col-span-2 overflow-visible"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
           style={{
-            position: "relative",
-            width: "100%",
-            height: "700px",
-            transform: "rotate(-3deg)", // rotate slightly to the left
-            overflow: "hidden", // optional, hides overflow from rotation
+            transformOrigin: "center center",
+            // Optional padding so the rotated edges don't bump the grid gap:
+            padding: "2rem",
           }}
-          className="col-span-2"
         >
-          {" "}
           <Image
-            alt={"banner-gif"}
-            src={"/bannergig.gif"}
-            fill // This makes the image fill the parent
-            style={{ objectFit: "cover" }} // or 'contain' based on your need
-            priority // optional, for better loading of important images
+            alt="banner-gif"
+            src="/bannergig.gif"
+            fill
+            style={{
+              objectFit: "contain",
+              objectPosition: "center",              transform: "rotate(-2deg)",
+            }}
+            priority
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

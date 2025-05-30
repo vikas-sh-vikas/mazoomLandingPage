@@ -63,7 +63,7 @@ export default function Accordion() {
                 hover:bg-white hover:text-black
               "
             >
-              <span className="text-2xl">{item.title}</span>
+              <span className="text-xl">{item.title}</span>
               <FaPlus
                 className={`
                   transition-transform duration-300
@@ -83,7 +83,7 @@ export default function Accordion() {
                 ${isOpen ? 'max-h-100' : 'hidden'}
               `}
             >
-              <div className="text-2xl mb-2">{item.contentTitle}</div>
+              <div className="text-xl font-semibold mb-2">{item.contentTitle}</div>
               <div className="text-md">{item.contentBody}</div>
             </div>
           </div>

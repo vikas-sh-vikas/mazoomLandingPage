@@ -1,18 +1,41 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
-function Invitation() {
+export default function Invitation() {
   return (
-    <div className="bg-black m-[7rem] rounded-4xl p-[7rem]">
-      <div className="text-white text-[3rem] text-right">
-        Want to see how your guest will receive the invite?and how to track it ?
-      </div>
-      <div className="text-right">
-        <button className="bg-white px-16 py-3 text-lg text-black rounded-full">
+    <motion.div
+      className="bg-black mx-4 sm:mx-8 md:mx-28 my-12 rounded-3xl p-8 sm:p-12 md:p-28"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      {/* Question Text */}
+      <motion.h2
+        className="text-white text-2xl sm:text-3xl md:text-4xl text-center md:text-right mb-6"
+        initial={{ x: -50, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        Want to see how your guests receive the invite{" "}
+        <br className="block md:hidden" />
+        and how to track it?
+      </motion.h2>
+
+      {/* Contact Button */}
+      <motion.div
+        className="flex justify-center md:justify-end"
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
+        <button className="bg-white text-black text-lg sm:text-xl px-8 sm:px-12 py-3 rounded-full shadow-lg hover:scale-105 transition-transform">
           Contact Us
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
-
-export default Invitation;
