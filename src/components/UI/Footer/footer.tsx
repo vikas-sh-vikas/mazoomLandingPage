@@ -1,8 +1,10 @@
 import React from "react";
 import { FaGoogle, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer")
   return (
     <footer className="bg-black text-white py-8 px-4 sm:px-8 lg:px-32">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-start gap-8">
@@ -17,9 +19,9 @@ export default function Footer() {
             />
           </div>
           <address className="not-italic text-sm">
-            Mazoom Company<br />
-            Riyadh, Saudi Arabia<br />
-            Takhassusi Street
+            {t("address")}
+            <br></br>
+            {t("address1")}
           </address>
         </div>
 

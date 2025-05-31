@@ -3,44 +3,11 @@
 import { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 
-type AccordionItem = {
-  title: string;
-  contentTitle: string;
-  contentBody: string;
-};
+type AccordionProps = {
+  data:AccordionItem[];
+}
 
-const items: AccordionItem[] = [
-  {
-    title: 'No Links',
-    contentTitle: 'No links, and bothersome pages to work with.',
-    contentBody:
-      "The invitation will be sent directly to your guest's WhatsApp, and they can respond in chat.",
-  },
-  {
-    title: 'No Links',
-    contentTitle: 'No links, and bothersome pages to work with.',
-    contentBody:
-      "The invitation will be sent directly to your guest's WhatsApp, and they can respond in chat.",
-  },
-  {
-    title: 'No Links',
-    contentTitle: 'No links, and bothersome pages to work with.',
-    contentBody:
-      "The invitation will be sent directly to your guest's WhatsApp, and they can respond in chat.",
-  },
-  {
-    title: 'Another Item',
-    contentTitle: 'Some other heading.',
-    contentBody: 'Some other descriptive text goes here.',
-  },
-  {
-    title: 'Yet Another',
-    contentTitle: 'Yet another heading.',
-    contentBody: 'More descriptive text for this panel.',
-  },
-];
-
-export default function Accordion() {
+export default function Accordion({data}:AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) =>
@@ -48,7 +15,7 @@ export default function Accordion() {
 
   return (
     <div className="space-y-6">
-      {items.map((item, idx) => {
+      {data?.map((item, idx) => {
         const isOpen = idx === openIndex;
         return (
           <div key={idx} className="border rounded-2xl overflow-hidden">

@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 // Variants for container and cards
 const containerVariants = {
@@ -39,29 +40,52 @@ const buttonVariants = {
 };
 
 function Pricing() {
+  const t = useTranslations("pricing");
+  const h = useTranslations("header");
   const plans = [
-    { title: "Basic Package", price: "79 SAR" },
-    { title: "Pro Package", price: "149 SAR" },
-    { title: "Enterprise Package", price: "299 SAR" },
-  ];
-
-  const features = [
-    "Send invites via WhatsApp or email",
-    "Customizable templates",
-    "Real-time RSVP tracking",
-    "Automated reminders",
-    "24/7 Support",
+    {
+      title: t("pricing-card.0.title"),
+      subTitle: t("pricing-card.0.sub-title"),
+      pointers: [
+        t("pricing-card.0.pointers.0"),
+        t("pricing-card.0.pointers.1"),
+        t("pricing-card.0.pointers.2"),
+        t("pricing-card.0.pointers.3"),
+        t("pricing-card.0.pointers.4"),
+      ],
+    },
+    {
+      title: t("pricing-card.1.title"),
+      subTitle: t("pricing-card.1.sub-title"),
+      pointers: [
+        t("pricing-card.1.pointers.0"),
+        t("pricing-card.1.pointers.1"),
+        t("pricing-card.1.pointers.2"),
+        t("pricing-card.1.pointers.3"),
+        t("pricing-card.1.pointers.4"),
+      ],
+    },
+    {
+      title: t("pricing-card.2.title"),
+      subTitle: t("pricing-card.2.sub-title"),
+      pointers: [
+        t("pricing-card.2.pointers.0"),
+        t("pricing-card.2.pointers.1"),
+        t("pricing-card.2.pointers.2"),
+        t("pricing-card.2.pointers.3"),
+      ],
+    },
   ];
 
   return (
-    <div id="Pricing" className="max-w-5xl m-auto py-16">
+    <div id={h("5")} className="max-w-5xl m-auto py-16">
       <motion.div
         className="text-[3.5rem] text-center pb-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Choose the plan that works for you
+        {t("title")}{" "}
       </motion.div>
 
       <motion.div
@@ -73,31 +97,33 @@ function Pricing() {
         {plans.map((plan, idx) => (
           <motion.div
             key={idx}
-            className="border-gray-300 border-2 rounded-3xl p-8 text-center bg-white"
+            className="border-gray-300 border-2 rounded-3xl p-8 text-center bg-white flex flex-col justify-between"
             variants={cardVariants}
             whileHover="hover"
             initial="hidden"
             animate="show"
           >
-            <div className="text-xl font-semibold mb-2">{plan.title}</div>
-            <div className="font-semibold text-sm text-gray-600 mb-4">
-              Starting from {plan.price}
+            <div>
+              <div className="text-xl font-semibold mb-2">{plan.title}</div>
+              <div className="font-semibold text-sm text-gray-600 mb-4">
+                {plan.subTitle}
+              </div>
+              <hr className="mb-4" />
+              <ol className="list-disc list-inside pl-5 space-y-2 mb-8 text-left">
+                {plan.pointers.map((feat, i) => (
+                  <li key={i} className="text-lg">
+                    {feat}
+                  </li>
+                ))}
+              </ol>
             </div>
-            <hr className="mb-4" />
-            <ol className="list-disc list-inside pl-5 space-y-2 mb-8 text-left">
-              {features.map((feat, i) => (
-                <li key={i} className="text-lg">
-                  {feat}
-                </li>
-              ))}
-            </ol>
             <motion.button
               className="font-semibold w-full rounded-full border py-3"
               variants={buttonVariants}
               initial="rest"
               whileHover="hover"
             >
-              Try for free
+              {t("card-button")}{" "}
             </motion.button>
           </motion.div>
         ))}

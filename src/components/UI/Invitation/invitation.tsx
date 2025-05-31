@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Invitation() {
+  const t = useTranslations("invitation");
   return (
     <motion.div
       className="bg-black mx-4 sm:mx-8 md:mx-28 my-12 rounded-3xl p-8 sm:p-12 md:p-28"
@@ -19,9 +21,7 @@ export default function Invitation() {
         viewport={{ once: true, amount: 0.4 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        Want to see how your guests receive the invite{" "}
-        <br className="block md:hidden" />
-        and how to track it?
+        {t("title")}
       </motion.h2>
 
       {/* Contact Button */}
@@ -33,7 +33,7 @@ export default function Invitation() {
         transition={{ delay: 0.4, duration: 0.6 }}
       >
         <button className="bg-white text-black text-lg sm:text-xl px-8 sm:px-12 py-3 rounded-full shadow-lg hover:scale-105 transition-transform">
-          Contact Us
+          {t("button")}{" "}
         </button>
       </motion.div>
     </motion.div>

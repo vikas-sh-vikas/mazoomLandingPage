@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   Drawer,
@@ -16,24 +16,34 @@ import {
   MenuItem,
 } from "@mui/material";
 import { FaBars, FaTimes } from "react-icons/fa";
-
-const navItems = [
-  "Log In",
-  "Home",
-  "Try Mazoom Invitation",
-  "Features",
-  "Customers",
-  "Pricing",
-  "Contact us",
-];
+import {  useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname(); // gives current route
+  // const otherLocale = locale === "en" ? "de" : "en";
+  // const locale = useLocale();
+  const router = useRouter();
+
+  const handleLanguageChange = (newLocale: "en" | "ar") => {
+    const segments = pathname.split("/");
+    segments[1] = newLocale; // update locale in URL path
+    const newPath = segments.join("/");
+    router.push(newPath); // navigate to new locale path
+    setLang(newLocale);
+  };
+
+  const t = useTranslations("header");
+  const navItems = [t("0"), t("1"), t("2"), t("3"), t("4"), t("5"), t("6")];
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [lang, setLang] = useState<"ENG" | "AR">("ENG");
+  const [lang, setLang] = useState<"en" | "ar">("en");
   const handleScroll = (targetId: string) => {
     const el = document.getElementById(targetId);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+  useEffect(()=>{
+
+  },[lang])
   return (
     <>
       {/* Sticky top header */}
@@ -93,10 +103,10 @@ export default function Header() {
 
           {/* Desktop nav links */}
           <nav className="justify-center gap-2 col-span-4 bg-white border border-gray-200 shadow-[0_4px_6px_-2px_rgba(236,122,48,0.3)] rounded-full px-8 py-3 items-center transition-shadow duration-200 ease-in-out hidden lg:flex space-x-4">
-            {navItems.map((item:string) => (
+            {navItems.map((item: string) => (
               <div
                 key={item}
-                onClick={()=>handleScroll(item)}
+                onClick={() => handleScroll(item)}
                 className="text-[14px] xl:text-[18px] hover:text-white hover:bg-[#ec7a30] px-2 py-1 rounded-full cursor-pointer"
               >
                 {item}
@@ -115,10 +125,11 @@ export default function Header() {
                   id="lang-select"
                   value={lang}
                   label="Lang"
-                  onChange={(e) => setLang(e.target.value as "ENG" | "AR")}
+onChange={(e) => handleLanguageChange(e.target.value as "en" | "ar")}
+
                 >
-                  <MenuItem value="ENG">ENG</MenuItem>
-                  <MenuItem value="AR">AR</MenuItem>
+                  <MenuItem value="en">ENG</MenuItem>
+                  <MenuItem value="ar">AR</MenuItem>
                 </Select>
               </FormControl>
             </div>

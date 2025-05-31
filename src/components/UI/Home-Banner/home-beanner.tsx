@@ -3,8 +3,10 @@ import Image from "next/image";
 import React from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 function HomeBanner() {
+  const t = useTranslations("home-banner");
   return (
     <div className="px-4 sm:px-8 md:px-[7rem]">
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
@@ -21,8 +23,9 @@ function HomeBanner() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Mazoom invitations<br></br>
-            Best way to invite
+            {t("header")}
+            <br></br>
+            {t("header1")}
           </motion.h1>
 
           <motion.p
@@ -31,8 +34,7 @@ function HomeBanner() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Your guests will enjoy high privacy and hassle-free use without any
-            app downloads or links. Elevate your event planning today with us.
+            {t("paragraph")}
           </motion.p>
 
           {/* App Buttons */}
@@ -60,7 +62,7 @@ function HomeBanner() {
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <button className="bg-[#ec7a30] hover:bg-[#d46823] transition-colors px-10 sm:px-16 py-3 text-white text-base sm:text-lg rounded-full shadow-md">
-              Contact Us
+              {t("button")}
             </button>
           </motion.div>
         </motion.div>
@@ -79,11 +81,12 @@ function HomeBanner() {
         >
           <Image
             alt="banner-gif"
-            src="/bannergig.gif"
+            src="/whatsapp.gif"
             fill
             style={{
               objectFit: "contain",
-              objectPosition: "center",              transform: "rotate(-2deg)",
+              objectPosition: "center",
+              transform: "rotate(-2deg)",
             }}
             priority
           />

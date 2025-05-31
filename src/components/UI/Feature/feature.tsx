@@ -3,8 +3,39 @@ import React from "react";
 import Accordion from "../accordion/accordion";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Feature() {
+  const t = useTranslations("features");
+
+  const data:AccordionItem[]= [
+      {
+        "title": t("accordion.0.title"),
+        "contentTitle": t("accordion.0.contentTitle"),
+        "contentBody": t("accordion.0.contentBody")
+      },
+      {
+        "title": t("accordion.1.title"),
+        "contentTitle": t("accordion.1.contentTitle"),
+        "contentBody": t("accordion.1.contentBody")
+      },
+      {
+        "title": t("accordion.2.title"),
+        "contentTitle": t("accordion.2.contentTitle"),
+        "contentBody": t("accordion.2.contentBody")
+      },
+      {
+        "title": t("accordion.3.title"),
+        "contentTitle": t("accordion.3.contentTitle"),
+        "contentBody": t("accordion.3.contentBody")
+      },
+      {
+        "title": t("accordion.4.title"),
+        "contentTitle": t("accordion.4.contentTitle"),
+        "contentBody": t("accordion.4.contentBody")
+      },
+    ];
+  
   return (
     <motion.section
       className="bg-black sm:ml-8 md:ml-28 my-16 rounded-3xl md:rounded-tr-none md:rounded-br-none overflow-hidden"
@@ -23,11 +54,7 @@ export default function Feature() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Want to see how your guests receive the invite?
-            <br className="block lg:hidden" />
-            <span className="inline-block lg:block mt-2">
-              and how to track it?
-            </span>
+            {t("title")}
           </motion.h2>
 
           <motion.div
@@ -36,7 +63,7 @@ export default function Feature() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <Accordion />
+            <Accordion data={data} />;
           </motion.div>
         </div>
 

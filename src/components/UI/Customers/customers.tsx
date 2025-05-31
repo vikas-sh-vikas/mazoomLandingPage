@@ -4,27 +4,9 @@ import { FaQuoteRight } from "react-icons/fa";
 import Accordion from "../accordion/accordion";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const testimonials = [
-  {
-    quote: "A new and very sophisticated idea.",
-    feedback:
-      "I enjoyed my experience with Mazoom. The invitations were so much easier!",
-    author: "manalq00 - Apple Store review",
-  },
-  {
-    quote: "The first choice for every occasion!✅",
-    feedback:
-      "The idea is really smart, I have received more than one invitation from my friends’ weddings through them. The process is very easy to deal with, and the best thing is that they have the reminder feature before the occasion for a few days to confirm all attendees and also the feature of sending the location. Really, the application saved us the trouble of searching for traditional cards and their high prices👍🏻",
-    author: "SaraKhalid97 - Apple Store review",
-  },
-  {
-    quote: "An excellent program 👌.",
-    feedback:
-      "The nice thing about it is the feature of accepting or rejecting, which lets you know who is attending and who is not 😍.",
-    author: "hayat121212 - Apple Store review",
-  },
-];
+
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -36,10 +18,58 @@ const cardVariants = {
 };
 
 export default function Customers() {
+    const t = useTranslations("customers")
+
+
+  const testimonials = [
+  {
+    quote: t("tesimonials.0.quote"),
+    feedback:t("tesimonials.0.feedback"),
+    author: t("tesimonials.0.author")
+  },
+  {
+    quote: t("tesimonials.1.quote"),
+    feedback:t("tesimonials.1.feedback"),
+    author: t("tesimonials.1.author")
+  },
+  {
+    quote: t("tesimonials.2.quote"),
+    feedback:t("tesimonials.2.feedback"),
+    author: t("tesimonials.2.author")
+  }
+
+];
+  const data = [
+      {
+        "title": t("accordion.0.title"),
+        "contentTitle": t("accordion.0.contentTitle"),
+        "contentBody": t("accordion.0.contentBody")
+      },
+      {
+        "title": t("accordion.1.title"),
+        "contentTitle": t("accordion.1.contentTitle"),
+        "contentBody": t("accordion.1.contentBody")
+      },
+      {
+        "title": t("accordion.2.title"),
+        "contentTitle": t("accordion.2.contentTitle"),
+        "contentBody": t("accordion.2.contentBody")
+      },
+      {
+        "title": t("accordion.3.title"),
+        "contentTitle": t("accordion.3.contentTitle"),
+        "contentBody": t("accordion.3.contentBody")
+      },
+      {
+        "title": t("accordion.4.title"),
+        "contentTitle": t("accordion.4.contentTitle"),
+        "contentBody": t("accordion.4.contentBody")
+      }
+    ];
   return (
     <div className="px-4 md:px-8 lg:px-16 py-12">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-        What our customers say about us
+        {t("title")}
       </h2>
 
       <motion.div
@@ -83,9 +113,7 @@ export default function Customers() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              All you need to manage your
-              <br className="block lg:hidden" />
-              <span className="inline-block lg:block mt-2">events </span>
+              {t("accordion-header")}
             </motion.h2>
 
             <motion.div
@@ -94,7 +122,7 @@ export default function Customers() {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <Accordion />
+              <Accordion data={data}/>
             </motion.div>
           </div>
 
